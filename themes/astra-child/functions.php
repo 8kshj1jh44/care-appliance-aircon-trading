@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CARE_APPLIANCES_CHILD_VERSION', '1.1.2' );
+define( 'CARE_APPLIANCES_CHILD_VERSION', '1.2.0' );
 
 /**
  * Load the child stylesheet after Astra's own styles so

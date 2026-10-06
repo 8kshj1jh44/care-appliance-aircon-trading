@@ -4,7 +4,7 @@ Theme URI: https://wpastra.com/
 Description: Astra child theme for Care Appliance Aircon Trading - design tokens, custom PHP and Elementor integration. Pages are built with Elementor; all custom code lives here.
 Author: franzlystrr
 Template: astra
-Version: 1.1.2
+Version: 1.2.0
 Text Domain: care-appliances-child
 */
 
@@ -38,6 +38,12 @@ body.home .site-content .ast-container {
 .custom-logo-link img {
     max-height: 72px;
     width: auto;
+}
+
+/* Custom SVG phone icon inside the contact icon list */
+.elementor-icon-list-icon svg {
+    width: 1em;
+    height: 1em;
 }
 
 /* Rounded cover/banner images */

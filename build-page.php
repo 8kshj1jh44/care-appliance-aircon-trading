@@ -85,6 +85,35 @@ if ( $existing ) {
 	echo "Banner imported: attachment #$att_id $banner_url\n";
 }
 
+/* ---------- import the custom phone SVG (svgrepo phone-incoming-02) ---------- */
+
+$svg_src = '/var/www/html/wp-content/themes/astra-child/assets/img/phone-incoming-02.svg';
+$existing_svg = get_posts( [
+	'post_type' => 'attachment', 'post_status' => 'inherit', 'numberposts' => 1,
+	'fields' => 'ids', 'title' => 'Phone incoming icon (SVG)',
+] );
+if ( $existing_svg ) {
+	$svg_id = $existing_svg[0];
+	echo "Phone SVG already imported: attachment #$svg_id\n";
+} else {
+	add_filter( 'upload_mimes', function ( $mimes ) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	} );
+	$svg_bits = wp_upload_bits( 'phone-incoming-02.svg', null, file_get_contents( $svg_src ) );
+	if ( ! empty( $svg_bits['error'] ) ) {
+		wp_die( 'SVG upload failed: ' . $svg_bits['error'] );
+	}
+	$svg_id = wp_insert_attachment( [
+		'post_mime_type' => 'image/svg+xml',
+		'post_title'     => 'Phone incoming icon (SVG)',
+		'post_status'    => 'inherit',
+	], $svg_bits['file'] );
+	echo "Phone SVG imported: attachment #$svg_id\n";
+}
+
+$phone_icon = [ 'value' => [ 'id' => $svg_id ], 'library' => 'svg' ];
+
 /* ---------- page building blocks ---------- */
 
 $h1 = ca_widget( 'heading', [
@@ -141,7 +170,7 @@ $hero = ca_container( [
 	], [
 		ca_widget( 'button', [
 			'text' => 'Call 0964-086-2665',
-			'selected_icon' => [ 'value' => 'fas fa-phone-volume', 'library' => 'fa-solid' ],
+			'selected_icon' => $phone_icon,
 			'icon_align' => 'left',
 			'icon_indent' => [ 'unit' => 'px', 'size' => 10 ],
 			'link' => [ 'url' => 'tel:+639640862665', 'is_external' => '', 'nofollow' => '' ],
@@ -327,7 +356,7 @@ $call_card = ca_container( [
 	] ),
 	ca_widget( 'button', [
 		'text' => 'Call 0964-086-2665',
-		'selected_icon' => [ 'value' => 'fas fa-phone-volume', 'library' => 'fa-solid' ],
+		'selected_icon' => $phone_icon,
 		'icon_align' => 'left',
 		'icon_indent' => [ 'unit' => 'px', 'size' => 10 ],
 		'link' => [ 'url' => 'tel:+639640862665', 'is_external' => '', 'nofollow' => '' ],
@@ -515,8 +544,8 @@ $contact = ca_container( [
 				'view' => 'traditional',
 				'icon_list' => [
 					[ '_id' => ca_id(), 'text' => 'Gen. Deloso St., Purok 2, Upper Loboc, Oroquieta City', 'selected_icon' => [ 'value' => 'fas fa-location-dot', 'library' => 'fa-solid' ] ],
-					[ '_id' => ca_id(), 'text' => '0964-086-2665', 'selected_icon' => [ 'value' => 'fas fa-phone', 'library' => 'fa-solid' ], 'link' => [ 'url' => 'tel:+639640862665', 'is_external' => '', 'nofollow' => '' ] ],
-					[ '_id' => ca_id(), 'text' => '0910-003-4325', 'selected_icon' => [ 'value' => 'fas fa-phone', 'library' => 'fa-solid' ], 'link' => [ 'url' => 'tel:+639100034325', 'is_external' => '', 'nofollow' => '' ] ],
+					[ '_id' => ca_id(), 'text' => '0964-086-2665', 'selected_icon' => $phone_icon, 'link' => [ 'url' => 'tel:+639640862665', 'is_external' => '', 'nofollow' => '' ] ],
+					[ '_id' => ca_id(), 'text' => '0910-003-4325', 'selected_icon' => $phone_icon, 'link' => [ 'url' => 'tel:+639100034325', 'is_external' => '', 'nofollow' => '' ] ],
 					[ '_id' => ca_id(), 'text' => 'Care Appliance Aircon Trading on Facebook', 'selected_icon' => [ 'value' => 'fab fa-facebook', 'library' => 'fa-brands' ], 'link' => [ 'url' => CA_FB, 'is_external' => 'true', 'nofollow' => '' ] ],
 				],
 				'icon_color' => '#58c1f0', 'text_color' => 'rgba(255,255,255,0.9)',
@@ -566,7 +595,7 @@ $cta = ca_container( [
 	] ),
 	ca_widget( 'button', [
 		'text' => 'Call 0964-086-2665',
-		'selected_icon' => [ 'value' => 'fas fa-phone-volume', 'library' => 'fa-solid' ],
+		'selected_icon' => $phone_icon,
 		'icon_align' => 'left',
 		'icon_indent' => [ 'unit' => 'px', 'size' => 10 ],
 		'link' => [ 'url' => 'tel:+639640862665', 'is_external' => '', 'nofollow' => '' ],
