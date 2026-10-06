@@ -141,6 +141,9 @@ $hero = ca_container( [
 	], [
 		ca_widget( 'button', [
 			'text' => 'Call 0964-086-2665',
+			'selected_icon' => [ 'value' => 'fas fa-phone-volume', 'library' => 'fa-solid' ],
+			'icon_align' => 'left',
+			'icon_indent' => [ 'unit' => 'px', 'size' => 10 ],
 			'link' => [ 'url' => 'tel:+639640862665', 'is_external' => '', 'nofollow' => '' ],
 			'align' => 'center', 'button_text_color' => '#ffffff',
 			'background_color' => CA_ACCENT,
@@ -152,6 +155,9 @@ $hero = ca_container( [
 		] ),
 		ca_widget( 'button', [
 			'text' => 'Message Us on Facebook',
+			'selected_icon' => [ 'value' => 'fab fa-facebook-messenger', 'library' => 'fa-brands' ],
+			'icon_align' => 'left',
+			'icon_indent' => [ 'unit' => 'px', 'size' => 10 ],
 			'link' => [ 'url' => CA_FB, 'is_external' => 'true', 'nofollow' => '' ],
 			'align' => 'center', 'button_text_color' => '#ffffff',
 			'background_color' => 'rgba(255,255,255,0)',
@@ -321,6 +327,9 @@ $call_card = ca_container( [
 	] ),
 	ca_widget( 'button', [
 		'text' => 'Call 0964-086-2665',
+		'selected_icon' => [ 'value' => 'fas fa-phone-volume', 'library' => 'fa-solid' ],
+		'icon_align' => 'left',
+		'icon_indent' => [ 'unit' => 'px', 'size' => 10 ],
 		'link' => [ 'url' => 'tel:+639640862665', 'is_external' => '', 'nofollow' => '' ],
 		'align' => 'center', 'button_text_color' => CA_NAVY,
 		'background_color' => '#ffffff',
@@ -378,6 +387,9 @@ $about = ca_container( [
 			] ),
 			ca_widget( 'button', [
 				'text' => 'See our latest units on Facebook',
+				'selected_icon' => [ 'value' => 'fab fa-facebook', 'library' => 'fa-brands' ],
+				'icon_align' => 'left',
+				'icon_indent' => [ 'unit' => 'px', 'size' => 10 ],
 				'link' => [ 'url' => CA_FB, 'is_external' => 'true', 'nofollow' => '' ],
 				'align' => 'left', 'button_text_color' => '#ffffff',
 				'background_color' => CA_BLUE,
@@ -507,6 +519,9 @@ $cta = ca_container( [
 	] ),
 	ca_widget( 'button', [
 		'text' => 'Call 0964-086-2665',
+		'selected_icon' => [ 'value' => 'fas fa-phone-volume', 'library' => 'fa-solid' ],
+		'icon_align' => 'left',
+		'icon_indent' => [ 'unit' => 'px', 'size' => 10 ],
 		'link' => [ 'url' => 'tel:+639640862665', 'is_external' => '', 'nofollow' => '' ],
 		'align' => 'center', 'button_text_color' => CA_NAVY,
 		'background_color' => '#ffffff',
