@@ -67,12 +67,3 @@ docker run --rm --network care-appliances_default \
   -e WORDPRESS_DB_PASSWORD=wordpress_password -e WORDPRESS_DB_NAME=wordpress_care_appliances \
   wordpress:cli wp <command>
 ```
-
-## Ports in use on this machine
-
-| Site | Port |
-|------|------|
-| Snakes | 8080 |
-| Bellas | 8081 |
-| Landoys | 8082 |
-| **Care Appliances** | **8083** |
