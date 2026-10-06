@@ -414,9 +414,56 @@ $about = ca_container( [
 	], true ),
 ] );
 
-/* ---------- 6. facebook feed ---------- */
+/* ---------- 6. facebook ---------- */
 
-$fb_html = '<div style="display:flex;justify-content:center;"><div class="ca-embed"><iframe loading="lazy" src="https://www.facebook.com/plugins/page.php?href=' . rawurlencode( CA_FB ) . '&amp;tabs=timeline&amp;width=500&amp;height=620&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true" width="500" height="620" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div></div>';
+$fb_card = ca_container( [
+	'content_width' => 'full',
+	'flex_direction' => 'column', 'flex_align_items' => 'center',
+	'flex_justify_content' => 'center', 'flex_gap' => ca_gap( 14 ),
+	'width' => [ 'unit' => 'px', 'size' => 620 ], 'width_mobile' => [ 'unit' => '%', 'size' => 100 ],
+	'background_background' => 'gradient',
+	'background_color' => CA_BLUE, 'background_color_stop' => [ 'unit' => '%', 'size' => 0 ],
+	'background_color_b' => CA_NAVY, 'background_color_b_stop' => [ 'unit' => '%', 'size' => 100 ],
+	'background_gradient_type' => 'linear',
+	'background_gradient_angle' => [ 'unit' => 'deg', 'size' => 160 ],
+	'padding' => ca_pad( 44, 32, 44, 32 ), 'padding_mobile' => ca_pad( 36, 20, 36, 20 ),
+	'border_radius' => ca_radius( 18 ),
+	'box_shadow_box_shadow' => [ 'horizontal' => 0, 'vertical' => 12, 'blur' => 36, 'spread' => 0, 'color' => 'rgba(13,58,92,0.22)' ],
+], [
+	ca_widget( 'icon', [
+		'selected_icon' => [ 'value' => 'fab fa-facebook', 'library' => 'fa-brands' ],
+		'align' => 'center',
+		'primary_color' => '#ffffff',
+		'size' => [ 'unit' => 'px', 'size' => 56 ],
+	] ),
+	ca_widget( 'heading', [
+		'title' => 'Care Appliance Aircon Trading',
+		'header_size' => 'h3', 'align' => 'center', 'title_color' => '#ffffff',
+		'typography_typography' => 'custom',
+		'typography_font_size' => [ 'unit' => 'px', 'size' => 24 ],
+		'typography_font_weight' => '800',
+	] ),
+	ca_widget( 'text-editor', [
+		'editor' => '<p>11,000+ followers — daily price drops, promos and photos of our latest installations.</p>',
+		'align' => 'center', 'text_color' => 'rgba(255,255,255,0.9)',
+		'typography_typography' => 'custom',
+		'typography_font_size' => [ 'unit' => 'px', 'size' => 15 ],
+	] ),
+	ca_widget( 'button', [
+		'text' => 'Follow our Facebook Page',
+		'selected_icon' => [ 'value' => 'fab fa-facebook', 'library' => 'fa-brands' ],
+		'icon_align' => 'left',
+		'icon_indent' => [ 'unit' => 'px', 'size' => 10 ],
+		'link' => [ 'url' => CA_FB, 'is_external' => 'true', 'nofollow' => '' ],
+		'align' => 'center', 'button_text_color' => CA_NAVY,
+		'background_color' => '#ffffff',
+		'hover_color' => '#ffffff', 'button_background_hover_color' => CA_ACCENT,
+		'border_radius' => ca_radius( 40 ), 'text_padding' => ca_pad( 16, 34, 16, 34 ),
+		'typography_typography' => 'custom',
+		'typography_font_size' => [ 'unit' => 'px', 'size' => 15 ],
+		'typography_font_weight' => '700',
+	] ),
+], true );
 
 $facebook = ca_container( [
 	'content_width' => 'boxed', 'width' => [ 'unit' => 'px', 'size' => 1140 ],
@@ -437,7 +484,7 @@ $facebook = ca_container( [
 		'typography_typography' => 'custom',
 		'typography_font_size' => [ 'unit' => 'px', 'size' => 16 ],
 	] ),
-	ca_widget( 'html', [ 'html' => $fb_html ] ),
+	$fb_card,
 ] );
 
 /* ---------- 7. contact + map ---------- */
