@@ -1,0 +1,60 @@
+/*
+Theme Name: Care Appliances Child
+Theme URI: https://wpastra.com/
+Description: Astra child theme for Care Appliance Aircon Trading - design tokens, custom PHP and Elementor integration. Pages are built with Elementor; all custom code lives here.
+Author: franzlystrr
+Template: astra
+Version: 1.1.2
+Text Domain: care-appliances-child
+*/
+
+/* =========================================
+   Design tokens
+   Brand colors taken from the business's own
+   FB cover banner. Elementor page content uses
+   the same values - keep them in sync.
+   ========================================= */
+
+:root {
+    --ca-primary: #189ae0;      /* brand blue (from FB banner) - buttons, links, headers */
+    --ca-dark: #0d3a5c;         /* deep navy - dark sections, headings */
+    --ca-accent: #ff8a00;       /* CTA orange - call buttons */
+    --ca-light: #f4f9fd;        /* alt section background */
+    --ca-text: #33475b;         /* body text */
+    --ca-muted: #5a7184;        /* secondary text */
+}
+
+/* Child-theme helpers used by the Elementor page */
+
+/* Full-bleed Elementor sections on the front page (Astra layout fallback) */
+body.home .site-content .ast-container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Header logo sizing (source file is 960x960) */
+.site-header .custom-logo,
+.custom-logo-link img {
+    max-height: 72px;
+    width: auto;
+}
+
+/* Rounded cover/banner images */
+.ca-img-rounded img {
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(13, 58, 92, 0.18);
+}
+
+/* Embedded iframes (Facebook page plugin, Google Map) */
+.ca-embed {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(13, 58, 92, 0.18);
+    line-height: 0;
+    max-width: 100%;
+}
+
+.ca-embed iframe {
+    max-width: 100%;
+}

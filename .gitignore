@@ -1,0 +1,9 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Local agent tooling (installed skills, not site code)
+.claude/
+.agents/
+agent/
