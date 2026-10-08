@@ -48,6 +48,7 @@ The Home page (id 5, front page) is a **pure Elementor document** - 8 container 
 - The header logo + favicon come from `themes/astra-child/assets/img/logo.jpg` (attachment #9; the original had the "OZAMIZ" wordmark, which was removed — the heart tip and hand V-gap were reconstructed so the design reads naturally).
 - Full-bleed sections rely on the Astra page meta `site-content-layout = page-builder` (set on the Home page) plus a CSS fallback in the child theme.
 - `build-page.php` can regenerate the whole page (idempotent): copy it back into `themes/astra-child/`, run `docker compose exec wordpress php wp-content/themes/astra-child/build-page.php`, then remove it again. Never leave it in the themes folder - it would be web-executable.
+- `setup-header.php` (same usage pattern) configures the Astra header: the "Main Menu" nav (anchor links to page sections via `_element_id` anchors set by build-page.php), a Facebook icon block and the orange Call Now button. Astra 4.8.9+ stores settings in the WP option `astra-settings` (not a theme mod) - read-modify-write must use `astra_get_raw_options()` + `update_option()`.
 
 ## Elementor 4.x container gotchas (learned the hard way)
 

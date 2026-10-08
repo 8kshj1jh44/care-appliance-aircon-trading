@@ -262,6 +262,7 @@ $service_card = function ( $icon, $title, $desc ) {
 };
 
 $services = ca_container( [
+	'_element_id' => 'services',
 	'content_width' => 'boxed', 'width' => [ 'unit' => 'px', 'size' => 1140 ],
 	'flex_direction' => 'column', 'flex_align_items' => 'center', 'flex_gap' => ca_gap( 44 ),
 	'padding' => ca_pad( 88, 24, 88, 24 ),
@@ -371,6 +372,7 @@ $call_card = ca_container( [
 ], true );
 
 $whyus = ca_container( [
+	'_element_id' => 'why-us',
 	'content_width' => 'boxed', 'width' => [ 'unit' => 'px', 'size' => 1140 ],
 	'flex_direction' => 'column', 'flex_align_items' => 'stretch', 'flex_gap' => ca_gap( 0 ),
 	'padding' => ca_pad( 88, 24, 88, 24 ),
@@ -385,6 +387,7 @@ $whyus = ca_container( [
 /* ---------- 5. about + brand banner ---------- */
 
 $about = ca_container( [
+	'_element_id' => 'about',
 	'content_width' => 'boxed', 'width' => [ 'unit' => 'px', 'size' => 1140 ],
 	'flex_direction' => 'column', 'flex_align_items' => 'stretch',
 	'padding' => ca_pad( 88, 24, 88, 24 ),
@@ -519,6 +522,7 @@ $facebook = ca_container( [
 /* ---------- 7. contact + map ---------- */
 
 $contact = ca_container( [
+	'_element_id' => 'contact',
 	'content_width' => 'boxed', 'width' => [ 'unit' => 'px', 'size' => 1140 ],
 	'flex_direction' => 'column', 'flex_align_items' => 'center', 'flex_gap' => ca_gap( 44 ),
 	'padding' => ca_pad( 88, 24, 88, 24 ),
